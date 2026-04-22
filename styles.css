@@ -1,0 +1,664 @@
+
+
+body{
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background: rgb(10, 10, 10); /* makes mix-blend-mode visible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+nav{
+  background-color: rgba(1, 255, 14, 0);
+  display: flex;
+  flex-direction: column;
+  top: 6rem;
+  position: fixed;
+  align-items: center;
+  justify-content: space-evenly;
+  right: 0;
+  height: 32rem;
+  width: 4rem;
+  z-index: 9999999999999999999999999;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  margin: 0.5rem;
+  animation: navanimmeow 0.3s ease-in;
+}
+
+
+
+
+
+/* Skryjeme výchozí kurzor na celé stránce */
+html, body {
+  cursor: none;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.5rem white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Důležité: kurzor nesmí blokovat klikání */
+  z-index: 9999;
+  mix-blend-mode: difference; /* Udělá kurzor viditelným na každém pozadí */
+  
+  /* Hardwarová akcelerace */
+  will-change: transform;
+  transform: translate3d(var(--x, 0), var(--y, 0), 0);
+}
+
+
+
+
+
+
+
+
+
+.navbutton{
+  background-color: rgba(57, 57, 57, 0);
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+  z-index: 999999999999999999999999999999;
+  filter: drop-shadow(rgb(255, 255, 255) 0 0 0.4rem);
+  animation: navanim 1s ease-in-out ;
+  transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
+}
+.navbutton:hover{
+  transition: ease-in-out 0.08s;
+  transform:scale(1.1);
+  filter: drop-shadow(0 0 2rem white);
+}
+.navbutton:nth-child(1){
+  animation: navanim .5s ease-in-out ;
+}
+.navbutton:nth-child(2){
+  animation: navanim 0.6s ease-in-out ;
+}
+.navbutton:nth-child(3){
+  animation: navanim 0.7s ease-in-out ;
+}
+.navbutton:nth-child(4){
+  animation: navanim 0.8s ease-in-out ;
+}
+.navbutton:nth-child(5){
+  animation: navanim 0.9s ease-in-out ;
+  bottom: 1rem;
+}
+
+
+#misc{
+    background-image: url(misc.png);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+#anime{
+    background-image: url(anime.png);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+#games{
+    background-image: url(game.png);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+#fotky{
+    background-image: url(images.png);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+#footer{
+    background-image: url(footer.png);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+#spotify{
+  position: fixed;
+  width: auto;
+  height: auto;
+  filter: invert;
+  left: 0;
+  z-index: 9999999999999;
+  opacity: 80%;
+}
+
+
+
+#title {
+  position: absolute; /* important */
+  top: 10rem;
+  font-size: 16rem;
+  font-weight: 900;
+  color: white;
+  filter: drop-shadow(rgb(255, 255, 255) 0 0 0.4rem);
+  mix-blend-mode: difference;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  animation: titleanimmeow 1s ease-in-out;
+  ;
+
+  
+}
+#title::before{
+  content: "";
+  height: 1px;
+  top: 4rem;
+  width: 24rem;
+  position: absolute;
+  filter: invert;
+  z-index: 999;
+  background-color: white;
+  animation: titleanim 30s ease-in-out infinite;
+}
+#title::after{
+  content: "";
+  height: 1px;
+  bottom: 2rem;
+  width: 8rem;
+  position: absolute;
+  filter: invert;
+  z-index: 999;
+  background-color: white;
+  animation: titleanimrev 24s  ease-in-out infinite;
+}
+
+
+@property --deg{
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0deg;
+}
+
+#boxWrapper{
+    height: 50rem;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    top: 40rem;
+    background-color: rgba(11, 206, 206, 0);
+
+
+
+}
+.box{
+    
+    font-family:'Courier New', Courier, monospace;
+    background: linear-gradient(to bottom, rgb(0, 0, 0) 15%, #181818 85%);
+    gap: 2em;
+    position: relative;
+    border-radius: 0.5rem;
+    display: flex;
+    color: whitesmoke;
+    margin-top: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.582);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+    
+}
+
+
+
+#smile {
+  position: fixed;
+  top: 1.5rem;
+  right: 0;
+  transform: translate(-50%, -50%);
+  
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+
+  mix-blend-mode: difference;
+  pointer-events: none; /* important */
+  z-index: 99999999;
+}
+
+
+
+
+#monstertext{
+  height: 100%;
+}
+#monstertext::before{
+  content: "miluju je :3";
+  position: absolute;
+  top: 0rem;
+  right: 2rem;
+  opacity: 50%;
+}
+#tfttext{
+  height: 100%;
+}
+#tfttext::before{
+  content: "Fandoms x)";
+  position: absolute;
+  top: 0rem;
+  left: 2rem;
+  opacity: 50%;
+}
+#tfttext::after{
+  content: "🎀";
+  position: absolute;
+  top: -0.5rem;
+  transform: scale(1.5);
+  right: -2rem;
+  opacity: 80%;
+  rotate: 45deg;
+}
+
+
+
+
+
+.separator{
+  height: 16vh;
+  position: relative;
+  background-color: rgba(255, 0, 0, 0);
+  width: 80vw;
+  top: 44rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 3rem;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 0.2rem;
+  
+}
+
+#animewrapper{
+  background-color:#ff323200;
+  top: 46rem;
+  height: auto;
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#animelist{
+
+  background-color:#00cafd00;
+
+  text-decoration: none;
+  list-style-type: none;
+  position: relative;
+  
+  
+
+  
+}
+li{display: flex;
+  flex-direction:row-reverse;
+}
+
+.anime{
+  list-style-type: none;
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 15%, #181818 85%);
+  width: 60%;
+  height: auto;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  border-radius: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.582);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+
+}
+.anime:nth-child(even){
+  transform: translateX(6rem);
+  transform: float ease-in 8s infinite;;
+}
+.anime:nth-child(odd){
+  transform: translateX(-6rem);
+}
+
+.animeimg{
+  height: 8rem;
+  width: 13rem;
+  background-color: rgba(0, 0, 0, 0.547);
+  position: relative;
+  border-radius: 1rem;
+  background-repeat: none;
+  background-size: 100% 100%;
+  border: 1px solid white;
+}
+.titleanime{
+  color: #FAF9F6;
+  text-shadow: #FAF9F6 0 0 1rem;
+  position: relative;
+  display: flex;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-blend-mode: exclusion;
+  width: fit-content;
+  justify-self: center;
+  font-weight: 999;
+  z-index: 99999;
+}
+
+.animeclass{
+  background-color: rgba(14, 102, 36, 0);
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+}
+.descanime{ 
+  background-color: rgba(255, 0, 0, 0); /* semi-transparent color */
+  backdrop-filter: blur(1.5rem);
+  display: flex;
+  justify-self: center;
+  text-align: center;
+  width: 80%;
+  height: auto;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #FAF9F6;
+  font-weight: 500;
+}
+
+
+#mushokuimg{
+    background-image: url(mushoku.jpg);
+
+}
+#tensuraimg{
+    background-image: url(tensura.jpg);
+}
+#tgimg{
+    background-image: url(tokyo.jpg);
+}
+#opimg{
+    background-image: url(onepiece.jpg);
+}
+#konosubaimg{
+    background-image: url(kokosuba.jpg);
+}
+#jujutsuimg{
+    background-image: url(jujutsu.jpg);
+}
+#jujutsu{
+  margin-bottom: 0;
+}
+#sep2{
+  top: 50rem;
+}
+#sep3{
+  top: 50rem;
+position: relative;
+}
+#sepdesc{
+  top: 48rem;
+position: relative;
+background-color: rgba(0, 0, 255, 0);
+width: 30%;
+font-size: 1rem;
+border: 0;
+text-align: center;
+}
+
+
+#osuwrapper{
+  background-color: rgba(255, 0, 0, 0);
+  margin: 4rem;
+  width: 70%;
+  height: 32rem;
+  position: relative;
+  top: 50rem;
+  z-index: 9999;
+  
+}
+#osu{
+  position: relative;
+  background-color: rgba(106, 255, 0, 0);
+
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.582);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+
+}
+
+#imgcontainer{
+  width: 70%;
+  background: rgba(20, 20, 20, 0.297);;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+  align-content: center;
+  position: relative;
+  top: 48rem;
+  display: grid;
+  backdrop-filter: blur(1.5rem);
+  padding: 1rem;
+  border-radius: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.582);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+
+}
+
+
+.IMAGE {
+  aspect-ratio: 1/1;
+  height: 20rem;
+  background-color: rgba(255, 0, 0, 0);
+  border-top: 1px solid rgba(255, 255, 255, 0.582);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+  border-radius: 0.5rem;
+  filter: blur(0.05rem) opacity(90%);
+  margin: 1rem;
+  margin-top: 1.5rem;
+  transition: transform 1s ease-in-out, filter 1s ease-in-out;
+}
+
+/* 2. SIMPLIFIED STATES */
+.IMAGE:hover,
+.imageonclick {
+  transform: scale(1.1);
+  filter: blur(0) opacity(100%);
+}
+
+.IMAGE:nth-child(1){
+    background-image: url(imgport/IMG_20260222_025108_678.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(2){
+    background-image: url(imgport/IMG_20260222_025838_164.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(3){
+    background-image: url(imgport/IMG_20260223_065841_047.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(4){
+    background-image: url(imgport/IMG_20260223_100055_707.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(5){
+    background-image: url(imgport/IMG_20260223_193745_935.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(6){
+    background-image: url(imgport/IMG_20260223_201541_119.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(7){
+    background-image: url(imgport/IMG_20260223_202943_901.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(8){
+    background-image: url(imgport/IMG_20260224_174956_861.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(9){
+    background-image: url(imgport/IMG_20260226_002905_072.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(10){
+    background-image: url(imgport/IMG_20260226_163540_312.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(11){
+    background-image: url(imgport/IMG_20260226_172111_707.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(12){
+    background-image: url(imgport/IMG_20260301_001724_359.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(13){
+    background-image: url(imgport/IMG_20260311_145058_897.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(14){
+    background-image: url(imgport/IMG_20260311_173256_558.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.IMAGE:nth-child(15){
+    background-image: url(imgport/IMG_20260412_220451_597.jpg);
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+
+
+
+
+
+@keyframes rotate {
+    to{
+        --deg: 360deg;
+    }
+}
+
+@keyframes float{
+  0%,100%{
+    transform: translatey(-15px);
+
+  }
+  50%{
+    transform: translatey(15px);
+
+
+  }
+}
+@keyframes floatrotate{
+    0%,100%{
+    transform: translatey(-15px);
+    transform: rotate(-15deg);
+  }
+  50%{
+    transform: translatey(15px);
+    transform: rotate(5deg);
+
+  }
+}
+@keyframes sizelol{
+  0%,100%{
+  }
+  50%{
+    font-size: 18rem;
+  }
+}
+@keyframes bganim{
+  0%{
+    transform: translateY(-280vh);
+  }
+  100%{transform: translateY(160vh);
+  }
+}
+@keyframes titleanim{
+0%{
+  transform: scale(1, 1);
+}
+50%{
+  transform: scale(2, 1);
+}
+100%{
+  transform: scale(1, 1);
+}
+}
+@keyframes titleanimrev{
+0%{
+  transform: scale(2, 1);
+}
+50%{
+  transform: scale(1, 1);
+}
+100%{
+  transform: scale(2, 1);
+}
+}
+@keyframes titleanimmeow{
+0%{
+  transform: scale(1.8);
+}
+
+100%{
+  transform: scale(1)
+}
+}
+@keyframes navanim{
+  0%{transform: translateX(100rem);}
+  100%{transform: translateX(0rem);}
+}
+@keyframes navanimmeow{
+  0%{
+    transform: translateX(50rem);
+    transform: rotate(60deg);
+    }
+
+  100%{
+    transform: translateX(0rem);
+    transform: rotate(90deg);
+    }
+}
